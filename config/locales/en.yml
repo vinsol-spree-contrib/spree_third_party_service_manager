@@ -2,4 +2,18 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    models:
+      spree/third_party_service:
+        one: Third Party Service
+        other: Third Party Services
+  spree:
+    new_third_party_service: New Service
+    no_resource_found: No %{resource} found
+    add_one: Add One
+    third_party_services: Third Party Services
+    enabled: Enabled
+    script: Script
+    new_third_party_service: New Third Party Service
+    successfully_enabled: '%{resource} has been successfully enabled.'
+    successfully_disabled: '%{resource} has been successfully disabled.'

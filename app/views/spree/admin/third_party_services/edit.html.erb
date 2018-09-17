@@ -1,0 +1,11 @@
+<% content_for :page_title do %>
+  <%= link_to Spree.t(:third_party_services), admin_third_party_service_path %> /
+  <%= @third_party_service.name %>
+<% end %>
+
+<%= form_for [:admin, @third_party_service], method: :put do |f| %>
+  <fieldset>
+    <%= render partial: 'form', locals: { f: f } %>
+    <%= render partial: 'spree/admin/shared/edit_resource_links' %>
+  </fieldset>
+<% end %>
