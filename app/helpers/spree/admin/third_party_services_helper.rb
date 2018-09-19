@@ -9,11 +9,11 @@ module Spree
         end
       end
 
-      def link_to_toggle_enabled(service)
-        if service.enabled?
-          link_to 'Disable', disable_admin_third_party_service_path(service), method: :post, class: 'btn btn-sm btn-warning'
+      def url_to_toggle_enabled(third_party_service)
+        if third_party_service.enabled?
+          disable_admin_third_party_service_path(third_party_service)
         else
-          link_to 'Enable', enable_admin_third_party_service_path(service), method: :post, class: 'btn btn-sm btn-success'
+          enable_admin_third_party_service_path(third_party_service)
         end
       end
 

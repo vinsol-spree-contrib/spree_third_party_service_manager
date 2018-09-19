@@ -13,20 +13,24 @@ module Spree
 
       def enable
         if @object.update(enabled: true)
-          flash[:success] = flash_message_for(@object, :successfully_enabled)
+          render json: { message: flash_message_for(@object, :successfully_enabled), 
+                         id: @object.id, 
+                         toggle_url: disable_admin_third_party_service_path(@object), 
+                         enabled: 'Yes' }, status: 200
         else
-          flash[:error] = @object.errors.full_messages.join(', ')
+          render json: { error: @object.errors.full_messages.join(', ') }, status: 422
         end
-        redirect_to action: :index
       end
 
       def disable
         if @object.update(enabled: false)
-          flash[:success] = flash_message_for(@object, :successfully_disabled)
+          render json: { message: flash_message_for(@object, :successfully_disabled), 
+                         id: @object.id, 
+                         toggle_url: enable_admin_third_party_service_path(@object), 
+                         enabled: 'No' }, status: 200
         else
-          flash[:error] = @object.errors.full_messages.join(', ')
+          render json: { error: @object.errors.full_messages.join(', ') }, status: 422
         end
-        redirect_to action: :index
       end
     end
   end

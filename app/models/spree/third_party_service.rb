@@ -1,5 +1,6 @@
 module Spree
   class ThirdPartyService < Spree::Base
+    self.table_name = 'third_party_services'
 
     with_options presence: true do
       validates :name, uniqueness: true
