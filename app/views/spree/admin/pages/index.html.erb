@@ -1,0 +1,36 @@
+<% content_for :page_title do %>
+  <%= plural_resource_name(Spree::Page) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <%= button_link_to Spree.t(:new_page), new_object_url, { class: "btn-success", icon: 'add', id: 'admin_new_page' } %>
+<% end if can?(:create, Spree::Page) %>
+
+<% if @pages.any? %>
+  <table class="table" id="listing_pages">
+    <thead>
+      <tr data-hook="admin_pages_index_headers">
+        <th><%= Spree.t(:page) %></th>
+        <th data-hook="admin_pages_index_header_actions" class="actions"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @pages.each do |page| %>
+        <tr id="<%= spree_dom_id page %>" data-hook="admin_pages_index_rows" class="<%= cycle('odd', 'even') %>">
+          <td class="page"><%= page.name %></td>
+          <td class="actions actions-2 text-right" data-hook="admin_pages_index_row_actions">
+            <%= link_to_edit page, no_text: true, class: 'edit pull-right' if can?(:edit, Spree::Page) %>
+            <%= link_to_delete page, no_text: true, class: 'pull-right' if can?(:delete, Spree::Page)%>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="alert alert-info no-objects-found">
+    <%= Spree.t(:no_resource_found, resource: plural_resource_name(Spree::Page)) %>,
+    <%= link_to Spree.t(:add_one), new_object_url  %>!
+  </div>
+<% end %>
+

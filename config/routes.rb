@@ -8,5 +8,7 @@ Spree::Core::Engine.add_routes do
         post :disable
       end
     end
+
+    resources :pages
   end
 end
