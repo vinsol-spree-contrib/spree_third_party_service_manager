@@ -1,5 +1,8 @@
 <%= render partial: 'spree/admin/shared/error_messages', locals: { target: @third_party_service } %>
 
+<%= javascript_include_tag 'spree/backend/third_party_service_select2' %>
+<%= javascript_include_tag 'spree/backend/select_all_option_manager' %>
+
 <div data-hook="admin_third_party_service_form_fields">
   <div data-hook="admin_third_party_service_form_name">
     <%= f.field_container :name, class: ['form-group'] do %>
@@ -26,4 +29,10 @@
     <% end %>
   </div>
 
+  <div data-hook="admin_third_party_service_from_pages">
+    <%= f.field_container :pages, class: ['form-group'] do %>
+      <%= f.label :page_ids, Spree.t(:pages) %>
+      <%= f.select :page_ids, options_for_select(options_for_page_selector(@third_party_service), @third_party_service.pages.pluck(:id)),{} , { multiple: true, class: 'select2', data: { select_all: @third_party_service.pages.count == Spree::Page.count } } %>
+    <% end %>
+  </div>
 </div>

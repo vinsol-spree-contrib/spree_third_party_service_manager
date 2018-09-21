@@ -1,3 +1,4 @@
-<% Spree::ThirdPartyService.enabled.each do |service| %>
-  <%= javascript_tag service.script %>
+<% current_pages_third_party_scripts(params[:controller], params[:action]).each do |script| %>
+    <%= javascript_tag script %>
 <% end %>
+
