@@ -12,10 +12,7 @@ module Spree
 
       def enable
         if @object.update(enabled: true)
-          render json: { message: flash_message_for(@object, :successfully_enabled), 
-                         id: @object.id, 
-                         toggle_url: disable_admin_third_party_service_path(@object), 
-                         enabled: 'Yes' }, status: 200
+          render json: { enabled: 'Yes' }, status: 200
         else
           render json: { error: @object.errors.full_messages.join(', ') }, status: 422
         end
@@ -23,10 +20,7 @@ module Spree
 
       def disable
         if @object.update(enabled: false)
-          render json: { message: flash_message_for(@object, :successfully_disabled), 
-                         id: @object.id, 
-                         toggle_url: enable_admin_third_party_service_path(@object), 
-                         enabled: 'No' }, status: 200
+          render json: { enabled: 'No' }, status: 200
         else
           render json: { error: @object.errors.full_messages.join(', ') }, status: 422
         end

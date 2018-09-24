@@ -11,8 +11,9 @@ ThirdPartyServiceToggler.prototype.sendAjaxToUpdateEnabled = function(){
 
   return function(){
     $.ajax({
-      url: $(this).data('toggle-url'),
+      url: _this.getToggleUrl(this),
       type: "POST",
+      context: this,
       dataype: "json"
     })
       .done(_this.toggleEnabled)
@@ -23,9 +24,18 @@ ThirdPartyServiceToggler.prototype.sendAjaxToUpdateEnabled = function(){
 
 };
 
-ThirdPartyServiceToggler.prototype.toggleEnabled = function(json){
-  $(".switch [data-service-id='" + json.id +"']").data('toggle-url', json.toggle_url);
-  $(".enabled[data-service-id='" + json.id +"']").text(json.enabled)
+ThirdPartyServiceToggler.prototype.toggleEnabled = function(response){
+  $(this).data("enabled", response.enabled);
+  $(this).parents('td[data-hook="admin_third_party_services_index_row_actions"]').prev('.enabled').text(response.enabled);
+};
+
+ThirdPartyServiceToggler.prototype.getToggleUrl = function(element){
+  if($(element).data('enabled') == "Yes"){
+    return "/admin/third_party_services/:id/disable".replace(":id", $(element).data('service-id'))
+  }
+  else{
+    return "/admin/third_party_services/:id/enable".replace(":id", $(element).data('service-id'))
+  }
 };
 
 $(function(){

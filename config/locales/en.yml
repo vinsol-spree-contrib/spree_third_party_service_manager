@@ -13,6 +13,4 @@ en:
     enabled: Enabled
     script: Script
     new_third_party_service: New Third Party Service
-    successfully_enabled: '%{resource} has been successfully enabled.'
-    successfully_disabled: '%{resource} has been successfully disabled.'
     third_party_service_manager: 'Third Party Service Manager'

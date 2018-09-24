@@ -23,10 +23,10 @@
       <% @third_party_services.each do |service| %>
         <tr id="<%= spree_dom_id service %>" data-hook="admin_third_party_services_index_rows" class="<%= cycle('odd', 'even') %>">
           <td class="name"><%= service.name %></td>
-          <td class="enabled" data-service-id='<%= service.id %>'><%= enabled(service) %></td>
+          <td class="enabled"><%= enabled(service) %></td>
           <td class="actions actions-3 text-right switch-td" data-hook="admin_third_party_services_index_row_actions">
             <label class="switch">
-              <input type="checkbox" data-toggle-switch='yes' data-service-id='<%= service.id %>' <%= 'checked' if service.enabled %> data-toggle-url = <%= url_to_toggle_enabled(service) %> >
+              <input type="checkbox" data-toggle-switch='yes' data-service-id='<%= service.id %>' <%= 'checked' if service.enabled %> data-enabled = <%= enabled(service) %> >
               <span class="slider round"></span>
             </label>
             <%= link_to_delete service, no_text: true, class: 'pull-right' %>
