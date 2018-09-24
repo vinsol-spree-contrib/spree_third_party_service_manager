@@ -1,14 +1,10 @@
 module Spree
   class ThirdPartyService < Spree::Base
-    self.table_name = 'third_party_services'
 
     with_options presence: true do
-      validates :name, uniqueness: true
-      validates :script
+      validates :name, uniqueness: { case_sensitive: false }
+      validates :script, length: { maximum: 65535 }
     end
-    validates :enabled, inclusion: { in: [true, false] }
-
-    scope :enabled, -> { where(enabled: true) }
 
   end
 end

@@ -1,7 +1,6 @@
 module Spree
   module Admin
     class ThirdPartyServicesController < ResourceController
-      helper 'spree/admin/third_party_services'
 
       def index
         @third_party_services = Spree::ThirdPartyService.all
