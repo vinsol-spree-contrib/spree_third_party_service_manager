@@ -17,13 +17,13 @@ module Spree
         end
       end
 
-      def options_for_page_selector(third_party_service)
+      def options_for_page_selector(third_party_service, all_page_options)
         if(third_party_service.pages.count == Spree::Page.count)
           first_option = ['Remove All', 'select']
         else
           first_option = ['Select All', 'select']
         end
-        Spree::Page.pluck(:name, :id).unshift(first_option)
+        all_page_options.unshift(first_option)
       end
 
     end

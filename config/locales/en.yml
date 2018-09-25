@@ -20,4 +20,3 @@ en:
     script_field_note: Add the script without the script tag
     pages: Pages
     new_page: New Page
-    page_successfully_removed: 'Page "%{page}" has been successfully removed.'
