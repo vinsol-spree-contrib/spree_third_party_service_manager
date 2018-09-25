@@ -13,4 +13,5 @@ en:
     enabled: Enabled
     script: Script
     new_third_party_service: New Third Party Service
-    third_party_service_manager: 'Third Party Service Manager'
+    third_party_service_manager: Third Party Service Manager
+    script_field_note: Add the script without the script tag

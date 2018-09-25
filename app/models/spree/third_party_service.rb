@@ -8,5 +8,7 @@ module Spree
       validates :script, length: { maximum: SCRIPT_MAX_LENGTH }
     end
 
+    scope :enabled, -> { where(enabled: true) }
+    
   end
 end

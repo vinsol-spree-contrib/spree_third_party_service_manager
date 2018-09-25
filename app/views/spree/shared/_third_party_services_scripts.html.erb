@@ -1,3 +1,3 @@
 <% Spree::ThirdPartyService.enabled.each do |service| %>
-  <%= raw service.script %>
+  <%= javascript_tag service.script %>
 <% end %>
