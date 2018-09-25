@@ -1,0 +1,44 @@
+<%= stylesheet_link_tag 'spree/backend/toggle_switch' %>
+<%= javascript_include_tag 'spree/backend/third_party_service_toggler' %>
+
+<% content_for :page_title do %>
+  <%= plural_resource_name(Spree::ThirdPartyService) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <%= button_link_to Spree.t(:new_third_party_service), new_object_url, { class: "btn-success", icon: 'add', id: 'admin_new_third_party_service' } %>
+<% end %>
+
+<% if @third_party_services.any? %>
+  <table class="table" id="listing_third_party_services">
+    <thead>
+      <tr data-hook="admin_third_party_services_index_headers">
+        <th><%= Spree.t(:name) %></th>
+        <th><%= Spree.t(:enabled) %></th>
+        <th data-hook="admin_third_party_services_index_header_actions" class="actions"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @third_party_services.each do |service| %>
+        <tr id="<%= spree_dom_id service %>" data-hook="admin_third_party_services_index_rows" class="<%= cycle('odd', 'even') %>">
+          <td class="name"><%= service.name %></td>
+          <td class="enabled"><%= enabled(service) %></td>
+          <td class="actions actions-3 text-right switch-td" data-hook="admin_third_party_services_index_row_actions">
+            <label class="switch">
+              <input type="checkbox" data-toggle-switch='yes' data-service-id='<%= service.id %>' <%= 'checked' if service.enabled %> data-enabled = <%= enabled(service) %> >
+              <span class="slider round"></span>
+            </label>
+            <%= link_to_delete service, no_text: true, class: 'pull-right' %>
+            <%= link_to_edit service, no_text: true, class: 'edit pull-right' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="alert alert-info no-objects-found">
+    <%= Spree.t(:no_resource_found, resource: plural_resource_name(Spree::ThirdPartyService)) %>,
+    <%= link_to Spree.t(:add_one), new_object_url  %>!
+  </div>
+<% end %>

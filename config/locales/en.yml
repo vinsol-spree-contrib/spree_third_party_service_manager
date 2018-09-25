@@ -2,4 +2,16 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    models:
+      spree/third_party_service:
+        one: Third Party Service
+        other: Third Party Services
+  spree:
+    new_third_party_service: New Service
+    third_party_services: Third Party Services
+    enabled: Enabled
+    script: Script
+    new_third_party_service: New Third Party Service
+    third_party_service_manager: Third Party Service Manager
+    script_field_note: Add the script without the script tag
