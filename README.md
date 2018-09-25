@@ -19,6 +19,11 @@ Introduction goes here.
   bundle exec rails g spree_third_party_service_manager:install
   ```
 
+5. Run the rake task to add existing spree pages.
+  ```ruby
+  bundle exec rake populate:spree_pages
+  ``` 
+
 4. Restart your server
 
   If your server was running, restart it so that it can find the assets properly.
