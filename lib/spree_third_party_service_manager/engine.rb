@@ -9,7 +9,7 @@ module SpreeThirdPartyServiceManager
       g.test_framework :rspec
     end
 
-    initializer 'spree_marketing.assets.precompile' do |app|
+    initializer 'spree_third_party_service_manager.assets.precompile' do |app|
       app.config.assets.precompile += %w[
         spree/backend/toggle_switch.css
         spree/backend/third_party_service_toggler.js
