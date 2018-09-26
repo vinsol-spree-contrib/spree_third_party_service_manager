@@ -10,7 +10,7 @@
   <table class="table" id="listing_pages">
     <thead>
       <tr data-hook="admin_pages_index_headers">
-        <th><%= Spree.t(:page) %></th>
+        <th><%= sort_link @search, :name, Spree.t(:name), { default: :desc }, {title: 'admin_pages_listing_name_title'} %></th>
         <th data-hook="admin_pages_index_header_actions" class="actions"></th>
       </tr>
     </thead>

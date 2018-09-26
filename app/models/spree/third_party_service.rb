@@ -15,6 +15,16 @@ module Spree
 
     ## SCOPES
     scope :enabled, -> { where(enabled: true) }
-    
+
+    self.whitelisted_ransackable_attributes = %w[name enabled]
+
+
+    def enabled
+      update(enabled: true)
+    end
+
+    def disable
+      update(enabled: false)
+    end
   end
 end

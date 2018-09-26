@@ -13,6 +13,8 @@ module Spree
     before_validation :set_name_to_lowercase
 
 
+    self.whitelisted_ransackable_attributes = %w[name]
+
     def self.get_enabled_scripts(controller, action)
       page_name = self.get_page_name(controller, action)
       scripts = Spree::Page.find_by_name(page_name).try(:third_party_services).try(:enabled).try(:pluck, :script)
@@ -22,6 +24,7 @@ module Spree
         []
       end
     end
+
 
     private
       def set_name_to_lowercase

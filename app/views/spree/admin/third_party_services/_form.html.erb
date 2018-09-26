@@ -32,7 +32,7 @@
   <div data-hook="admin_third_party_service_from_pages">
     <%= f.field_container :pages, class: ['form-group'] do %>
       <%= f.label :page_ids, Spree.t(:pages) %>
-      <%= f.select :page_ids, options_for_select(options_for_page_selector(@third_party_service, Spree::Page.pluck(:name, :id)), @third_party_service.pages.pluck(:id)),{} , { multiple: true, class: 'select2', data: { select_all: @third_party_service.pages.count == Spree::Page.count } } %>
+      <%= f.select :page_ids, options_for_select(options_for_page_selector(@third_party_service, @pages), @third_party_service.pages.pluck(:id)),{} , { multiple: true, class: 'select2', data: { select_all: @third_party_service.pages.count == Spree::Page.count } } %>
     <% end %>
   </div>
 </div>
