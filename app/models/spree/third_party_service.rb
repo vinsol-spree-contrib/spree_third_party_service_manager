@@ -1,6 +1,7 @@
 module Spree
   class ThirdPartyService < Spree::Base
 
+    ## CONSTANTS
     SCRIPT_MAX_LENGTH = 65535
 
     ## ASSOCIATIONS
@@ -17,7 +18,6 @@ module Spree
     scope :enabled, -> { where(enabled: true) }
 
     self.whitelisted_ransackable_attributes = %w[name enabled]
-
 
     def enable
       update(enabled: true)
