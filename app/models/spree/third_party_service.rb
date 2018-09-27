@@ -19,7 +19,7 @@ module Spree
     self.whitelisted_ransackable_attributes = %w[name enabled]
 
 
-    def enabled
+    def enable
       update(enabled: true)
     end
 
