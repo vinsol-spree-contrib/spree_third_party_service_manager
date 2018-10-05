@@ -1,12 +1,26 @@
-# SpreeThirdPartyServiceManager
 
-Introduction goes here.
+# Spree Third Party Service Manager
+This spree extension allows the admin to add third party services from backend. It provides an interface to manage the third party services and the pages on which these services will run by creating, editing, deleting and enabling them.
+
+## Demo
+
+Try Spree Third Party Service Manager for Spree master with direct deployment on Heroku:
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/vinsol-spree-contrib/spree-demo-heroku/tree/spree-third-party-service-manager-master)
+
+Try Spree Third Party Service Manager for Spree 3-6 with direct deployment on Heroku:
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/vinsol-spree-contrib/spree-demo-heroku/tree/spree-third-party-service-manager-3-6)
+
+Try Spree Third Party Service Manager for Spree 3-4 with direct deployment on Heroku:
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/vinsol-spree-contrib/spree-demo-heroku/tree/spree-third-party-service-manager-3-4)
 
 ## Installation
 
 1. Add this extension to your Gemfile with this line:
   ```ruby
-  gem 'spree_third_party_service_manager', github: '[your-github-handle]/spree_third_party_service_manager'
+  gem 'spree_third_party_service_manager', github: 'vinsol-spree-contrib/spree_third_party_service_manager'
   ```
 
 2. Install the gem using Bundler:
@@ -47,8 +61,17 @@ require 'spree_third_party_service_manager/factories'
 
 ## Contributing
 
-If you'd like to contribute, please take a look at the
-[instructions](CONTRIBUTING.md) for installing dependencies and crafting a good
-pull request.
+1. Fork the repo.
+2. Clone your repo.
+3. Run `bundle install`.
+4. Run `bundle exec rake test_app` to create the test application in `spec/test_app`.
+5. Make your changes.
+6. Ensure specs pass by running `bundle exec rspec spec`.
+7. Submit your pull request.
 
-Copyright (c) 2018 [name of extension creator], released under the New BSD License
+## Credits
+
+[![vinsol.com: Ruby on Rails, iOS and Android developers](http://vinsol.com/vin_logo.png "Ruby on Rails, iOS and Android developers")](http://vinsol.com)
+
+Copyright (c) 2018 [vinsol.com](http://vinsol.com "Ruby on Rails, iOS and Android developers"), released under the [BSD-3-Clause License](https://opensource.org/licenses/BSD-3-Clause)
+
