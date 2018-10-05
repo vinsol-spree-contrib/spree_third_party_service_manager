@@ -32,7 +32,14 @@
   <div data-hook="admin_third_party_service_from_pages">
     <%= f.field_container :pages, class: ['form-group'] do %>
       <%= f.label :page_ids, Spree.t(:pages) %>
-      <%= f.select :page_ids, options_for_select(options_for_page_selector(@third_party_service, @pages), @third_party_service.pages.pluck(:id)),{} , { multiple: true, class: 'select2', data: { select_all: @third_party_service.pages.count == Spree::Page.count } } %>
+      <% unless @pages.present? %>
+        <div class="alert alert-info">
+          <%= Spree.t(:no_pages_exist) %>
+          <%= link_to Spree.t(:here), new_admin_page_path  %>!
+        </div>
+      <% else %>
+        <%= f.select :page_ids, options_for_select(get_page_options(@third_party_service, @pages, @selected_pages_ids), @selected_pages_ids), {}, { multiple: true, class: 'select2', data: { select_all: @selected_pages_ids.try(:size) == @pages.size } } %>
+      <% end %>
     <% end %>
   </div>
 </div>

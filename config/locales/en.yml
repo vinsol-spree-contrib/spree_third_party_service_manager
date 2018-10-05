@@ -20,3 +20,5 @@ en:
     script_field_note: Add the script without the script tag
     pages: Pages
     new_page: New Page
+    no_pages_exist: No Page has been created yet. Create one
+    here: 'Here'

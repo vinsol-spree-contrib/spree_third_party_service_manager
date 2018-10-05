@@ -2,11 +2,11 @@ module Spree
   class Page < Spree::Base
 
     ## CONSTANTS
-    NAME_REGEXP = /\A[a-zA-Z]+\/[a-zA-Z0-9]+/
+    NAME_REGEXP = /\A[a-zA-Z]+(\/[a-zA-Z]+)+/
 
     ## ASSOCIATIONS
     has_many :page_third_party_services
-    has_many :third_party_services, through: :page_third_party_services
+    has_many :third_party_services, through: :page_third_party_services, dependent: :destroy
     
     ## VALIDATIONS
     validates :name, presence: true, 
@@ -19,18 +19,19 @@ module Spree
 
     self.whitelisted_ransackable_attributes = %w[name]
 
-    def self.get_enabled_scripts(controller, action)
-      page_name = self.get_page_name(controller, action)
-      Spree::ThirdPartyService.enabled.joins(:pages).where(spree_pages: { name: page_name }).pluck(:script)
+
+    def self.current_page(controller, action)
+      page_name = controller + '/' + action
+      Spree::Page.find_by_name(page_name)
+    end
+
+    def enabled_scripts
+      third_party_services.enabled.pluck(:script)
     end
 
     private
       def set_name_to_lowercase
         name.downcase!
-      end
-
-      def self.get_page_name(controller, action)
-        controller.gsub('spree/', '') + '/' + action
       end
   end
 end

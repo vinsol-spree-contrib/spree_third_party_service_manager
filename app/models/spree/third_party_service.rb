@@ -6,7 +6,7 @@ module Spree
 
     ## ASSOCIATIONS
     has_many :page_third_party_services
-    has_many :pages, through: :page_third_party_services
+    has_many :pages, through: :page_third_party_services, dependent: :destroy
 
     ## VALIDATIONS
     with_options presence: true do
