@@ -7,7 +7,7 @@ RSpec.describe Spree::ThirdPartyService, type: :model do
   
   describe 'Associations' do
     it { is_expected.to have_many(:page_third_party_services) }
-    it { is_expected.to have_many(:pages).through(:page_third_party_services) }
+    it { is_expected.to have_many(:pages).through(:page_third_party_services).dependent(:destroy) }
   end
 
   describe 'Validations' do
