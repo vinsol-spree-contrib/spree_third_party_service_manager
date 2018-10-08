@@ -1,3 +1,5 @@
-<% Spree::Page.current_page(params[:controller], params[:action]).enabled_scripts.each do |script| %>
-  <%= javascript_tag script %>
+<% if current_page(params[:controller], params[:action]).present? %>
+  <% @current_page.enabled_scripts.each do |script| %>
+    <%= javascript_tag script %>
+  <% end %>
 <% end %>

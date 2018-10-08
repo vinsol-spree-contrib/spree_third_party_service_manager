@@ -38,7 +38,7 @@
           <%= link_to Spree.t(:here), new_admin_page_path  %>!
         </div>
       <% else %>
-        <%= f.select :page_ids, options_for_select(get_page_options(@third_party_service, @pages, @selected_pages_ids), @selected_pages_ids), {}, { multiple: true, class: 'select2', data: { select_all: @selected_pages_ids.try(:size) == @pages.size } } %>
+        <%= f.select :page_ids, options_for_select(get_page_options(@third_party_service, @pages, @third_party_service.pages), get_selected_pages_ids(@third_party_service)), {}, { multiple: true, class: 'select2', data: { select_all: are_all_pages_selected?(@pages, @third_party_service.pages) } } %>
       <% end %>
     <% end %>
   </div>

@@ -20,11 +20,6 @@ module Spree
     self.whitelisted_ransackable_attributes = %w[name]
 
 
-    def self.current_page(controller, action)
-      page_name = controller + '/' + action
-      Spree::Page.find_by_name(page_name)
-    end
-
     def enabled_scripts
       third_party_services.enabled.pluck(:script)
     end

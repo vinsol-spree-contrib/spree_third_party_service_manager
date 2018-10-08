@@ -3,33 +3,29 @@ function SelectAllOptionManager(options){
 }
 
 SelectAllOptionManager.prototype.init = function(){
-  this.$selectElement.on('click', this.manage())
+  this.$selectElement.on('click', this.manageOptions.bind(this));
 };
 
-SelectAllOptionManager.prototype.manage = function(){
-  var _this = this;
-
-  return function(){
-    _this.selectOrDeselectAllOptions(this);
-    _this.updateSelectOptionText(this);    
-  };
+SelectAllOptionManager.prototype.manageOptions = function(){
+  this.selectOrDeselectAllOptions();
+  this.updateSelectOptionText();    
 };
 
-SelectAllOptionManager.prototype.selectOrDeselectAllOptions = function(selectElement){
-  if($(selectElement).find(":selected").first().val() == 'select'){
-    if($(selectElement).attr("data-select-all") == "false"){
-      $(selectElement).find("option:gt(0)").prop("selected", true);
-    }else{
-      $(selectElement).find("option").prop("selected", false);
+SelectAllOptionManager.prototype.selectOrDeselectAllOptions = function(){
+  if(this.$selectElement.find(":selected").first().val() == 'select') {
+    if(this.$selectElement.attr("data-select-all") == "false") {
+      this.$selectElement.find("option:gt(0)").prop("selected", true);
+    } else {
+      this.$selectElement.find("option").prop("selected", false);
     }
   }
 };
 
-SelectAllOptionManager.prototype.updateSelectOptionText = function(selectElement){
-  if($(selectElement).find("option:gt(0):selected").length == $(selectElement).find("option:gt(0)").length){
-    $(selectElement).attr("data-select-all", "true").find("option:eq(0)").prop("selected", false).text("Remove All").trigger('change');
-  }else{
-    $(selectElement).attr("data-select-all", "false").find("option:eq(0)").text("Select All").trigger('change');
+SelectAllOptionManager.prototype.updateSelectOptionText = function(){
+  if(this.$selectElement.find("option:gt(0):selected").length == this.$selectElement.find("option:gt(0)").length) {
+    this.$selectElement.attr("data-select-all", "true").find("option:eq(0)").prop("selected", false).text("Remove All").trigger('change');
+  } else {
+    this.$selectElement.attr("data-select-all", "false").find("option:eq(0)").text("Select All").trigger('change');
   }
 }
 
