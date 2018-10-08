@@ -17,6 +17,8 @@ require File.expand_path('../dummy/config/environment.rb', __FILE__)
 
 require 'rspec/rails'
 require 'ffaker'
+require 'shoulda/matchers'
+require 'shoulda-callback-matchers'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -28,6 +30,13 @@ require 'spree/testing_support/capybara_ext'
 require 'spree/testing_support/controller_requests'
 require 'spree/testing_support/factories'
 require 'spree/testing_support/url_helpers'
+
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
+  end
+end
 
 RSpec.configure do |config|
   # Infer an example group's spec type from the file location.
@@ -58,7 +67,7 @@ RSpec.configure do |config|
   config.color = true
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  # config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
   # Capybara javascript drivers require transactional fixtures set to false, and we use DatabaseCleaner
   # to cleanup after each test instead.  Without transactional fixtures set to false the records created
@@ -67,4 +76,5 @@ RSpec.configure do |config|
 
   config.fail_fast = ENV['FAIL_FAST'] || false
   config.order = 'random'
+  config.include Devise::Test::ControllerHelpers, type: :controller
 end
