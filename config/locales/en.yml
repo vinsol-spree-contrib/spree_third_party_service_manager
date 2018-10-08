@@ -7,11 +7,18 @@ en:
       spree/third_party_service:
         one: Third Party Service
         other: Third Party Services
+      spree/page:
+        one: Page
+        other: Pages
   spree:
     new_third_party_service: New Service
     third_party_services: Third Party Services
+    services: Services
     enabled: Enabled
     script: Script
     new_third_party_service: New Third Party Service
-    third_party_service_manager: Third Party Service Manager
     script_field_note: Add the script without the script tag
+    pages: Pages
+    new_page: New Page
+    no_pages_exist: No Page has been created yet. Create one
+    here: 'Here'

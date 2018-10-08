@@ -4,9 +4,11 @@ Spree::Core::Engine.add_routes do
   namespace :admin do
     resources :third_party_services do
       member do
-        post :enable
-        post :disable
+        patch :enable
+        patch :disable
       end
     end
+
+    resources :pages
   end
 end

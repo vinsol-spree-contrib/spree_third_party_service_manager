@@ -1,0 +1,12 @@
+<%= render partial: 'spree/admin/shared/error_messages', locals: { target: @page } %>
+
+<div data-hook="admin_page_form_fields">
+  <div data-hook="admin_page_form_name">
+    <%= f.field_container :name, class: ['form-group'] do %>
+      <%= f.label :name, raw(Spree.t(:name) + content_tag(:span, ' *', class: 'required')) %>
+      <%= f.text_field :name, class: 'form-control title' %>
+      <%= f.error_message_on :name %>
+    <% end %>
+  </div>
+</div>
+

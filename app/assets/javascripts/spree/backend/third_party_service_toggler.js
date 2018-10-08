@@ -12,7 +12,7 @@ ThirdPartyServiceToggler.prototype.sendAjaxToUpdateEnabled = function(){
   return function(){
     $.ajax({
       url: _this.getToggleUrl(this),
-      type: "POST",
+      type: "PATCH",
       context: this,
       dataype: "json"
     })
