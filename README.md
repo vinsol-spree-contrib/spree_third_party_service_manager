@@ -58,6 +58,11 @@ Simply add this require statement to your spec_helper:
 require 'spree_third_party_service_manager/factories'
 ```
 
+## See It In Action
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=GRrUOggtMqk
+" target="_blank"><img src="http://img.youtube.com/vi/GRrUOggtMqk/0.jpg" 
+alt="Youtube Video Tutorial" /></a>
 
 ## Contributing
 
