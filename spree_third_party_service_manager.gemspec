@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.name        = 'spree_third_party_service_manager'
   s.version     = SpreeThirdPartyServiceManager.version
   s.summary     = 'Dynamically add third party services and their pages'
-  s.required_ruby_version = '>= 2.2.7'
+  s.required_ruby_version = '>= 2.5'
   s.author    = 'Avneet Singh Malhotra'
   s.email     = 'info@vinsol.com'
   s.homepage  = 'http://vinsol.com'
@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  spree_version = '>= 3.2.0', '< 4.0'
+  spree_version = '~> 4.1'
   s.add_dependency 'spree_core', spree_version
   s.add_dependency 'spree_backend', spree_version
   s.add_dependency 'spree_extension'
@@ -38,6 +38,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'sqlite3'
   s.add_development_dependency 'pg', '~> 0.18'
   s.add_development_dependency 'simplecov'
-  s.add_development_dependency 'shoulda-matchers', '~> 3.1'
-  s.add_development_dependency 'shoulda-callback-matchers', '~> 1.1.1'
+  s.add_development_dependency 'shoulda-matchers', '~> 4.0'
+  s.add_development_dependency 'shoulda-callback-matchers', '~> 1.1.4'
 end
