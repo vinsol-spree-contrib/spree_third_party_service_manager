@@ -1,4 +1,4 @@
-if Spree.version.to_f > 4.0
+if Spree.version.to_f >= 4.0
   Deface::Override.new(virtual_path: 'spree/admin/shared/_main_menu',
                        name: 'add_third_party_service_manager_to_admin_tabs',
                        insert_after: "erb[loud]:contains('t(:configurations)')",
