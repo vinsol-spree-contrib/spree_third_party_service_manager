@@ -4,9 +4,9 @@ This spree extension allows the admin to add third party services from backend. 
 
 ## Demo
 
-Try Spree Third Party Service Manager for Spree master with direct deployment on Heroku:
+Try Spree Third Party Service Manager for Spree 4-0 and later with direct deployment on Heroku:
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/vinsol-spree-contrib/spree-demo-heroku/tree/spree-third-party-service-manager-master)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/vinsol-spree-contrib/spree-demo-heroku/tree/spree-third-party-service-manager-4-0)
 
 Try Spree Third Party Service Manager for Spree 3-6 with direct deployment on Heroku:
 
@@ -36,7 +36,7 @@ Try Spree Third Party Service Manager for Spree 3-4 with direct deployment on He
 4. Run the rake task to add existing spree pages.
   ```ruby
   bundle exec rake spree_pages:populate
-  ``` 
+  ```
 
 5. Restart your server
 
@@ -61,7 +61,7 @@ require 'spree_third_party_service_manager/factories'
 ## See It In Action
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=GRrUOggtMqk
-" target="_blank"><img src="http://img.youtube.com/vi/GRrUOggtMqk/0.jpg" 
+" target="_blank"><img src="http://img.youtube.com/vi/GRrUOggtMqk/0.jpg"
 alt="Youtube Video Tutorial" /></a>
 
 ## Contributing
