@@ -1,4 +1,4 @@
-<% if current_page(params[:controller], params[:action]).present? %>
+<% if Spree::ThirdPartyHelper.current_page(params[:controller], params[:action]).present? %>
   <% @current_page.enabled_scripts.each do |script| %>
     <%= javascript_tag script %>
   <% end %>
